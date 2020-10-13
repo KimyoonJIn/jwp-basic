@@ -19,6 +19,7 @@ public class QuestionDao {
         String sql = "INSERT INTO QUESTIONS " + 
                 "(writer, title, contents, createdDate) " + 
                 " VALUES (?, ?, ?, ?)";
+
         PreparedStatementCreator psc = new PreparedStatementCreator() {
             @Override
             public PreparedStatement createPreparedStatement(Connection con) throws SQLException {
