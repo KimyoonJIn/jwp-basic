@@ -12,8 +12,22 @@ import core.jdbc.JdbcTemplate;
 import core.jdbc.KeyHolder;
 import core.jdbc.PreparedStatementCreator;
 import core.jdbc.RowMapper;
+import next.model.Question;
 
 public class AnswerDao {
+
+    private static AnswerDao answerDao;
+
+    private AnswerDao() {
+    }
+
+    public static AnswerDao getInstance() {
+        if (answerDao == null) {
+            answerDao = new AnswerDao();
+        }
+        return answerDao;
+    }
+
     public Answer insert(Answer answer) {
         JdbcTemplate jdbcTemplate = new JdbcTemplate();
         String sql = "INSERT INTO ANSWERS (writer, contents, createdDate, questionId) VALUES (?, ?, ?, ?)";

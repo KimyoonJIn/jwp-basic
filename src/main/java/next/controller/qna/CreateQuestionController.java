@@ -19,7 +19,7 @@ public class CreateQuestionController  extends AbstractController {
 
     private static final Logger log = LoggerFactory.getLogger(CreateQuestionController.class);
 
-    private QuestionDao questionDao = new QuestionDao();
+    private QuestionDao questionDao = QuestionDao.getInstance();
 
     @Override
     public ModelAndView execute(HttpServletRequest req, HttpServletResponse response) throws Exception {
