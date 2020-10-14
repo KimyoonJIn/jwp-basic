@@ -57,6 +57,15 @@ public class Question {
         return countOfComment;
     }
 
+    public void setContents(String contents) {
+        this.contents = contents;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+
     @Override
     public String toString() {
         return "Question [questionId=" + questionId + ", writer=" + writer + ", title=" + title + ", contents="
