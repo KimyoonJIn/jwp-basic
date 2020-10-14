@@ -35,7 +35,7 @@ public class AddAnswerController extends AbstractController {
 
         // 코멘트 작성할 때 글쓴이를 입력하지 않고 로그인한 사용자 정보를 가져와 글쓴이 이름으로 사용하도록 구현
         String writer = req.getParameter("writer");
-        if (writer == null){
+        if (writer == null) {
             writer = user.getUserId();
         }
 
@@ -45,10 +45,10 @@ public class AddAnswerController extends AbstractController {
 
         Answer savedAnswer = answerDao.insert(answer);
         questionDao.updateCountOfAnswer(savedAnswer.getQuestionId());
-        List<Answer>  answers = answerDao.findAllByQuestionId(savedAnswer.getQuestionId());
-//        log.debug("answers : {}", answers);
-//        log.debug("answers : {}", answers.size());
 
-        return jsonView().addObject("answer", savedAnswer).addObject("result", Result.ok());
+        // TODO : Question AJAX 구현
+        Question question = questionDao.findById(savedAnswer.getQuestionId());
+
+        return jsonView().addObject("question", question).addObject("answer", savedAnswer).addObject("result", Result.ok());
     }
 }

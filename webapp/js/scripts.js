@@ -21,6 +21,12 @@ function onSuccess(json, status){
   var answerTemplate = $("#answerTemplate").html();
   var template = answerTemplate.format(answer.writer, new Date(answer.createdDate), answer.contents, answer.answerId, answer.answerId);
   $(".qna-comment-slipp-articles").prepend(template);
+
+  //TODO: question AJAX 구현
+
+  // var question = json.question;
+  // var questionTemplate = $().html();
+  // var updateQuestionTemplate = questionTemplate.
 }
 
 function onError(xhr, status) {
