@@ -44,7 +44,7 @@ public class AddAnswerController extends AbstractController {
         log.debug("answer : {}", answer);
 
         Answer savedAnswer = answerDao.insert(answer);
-        questionDao.updateCountOfAnswer(savedAnswer.getQuestionId());
+        questionDao.addCountOfAnswer(savedAnswer.getQuestionId());
 
         // TODO : Question AJAX 구현
         Question question = questionDao.findById(savedAnswer.getQuestionId());
